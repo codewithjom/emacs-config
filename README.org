@@ -255,28 +255,6 @@ Don't warn when advice is added for functions:
 
 #+end_src
 
-** Dashboard
-
-#+begin_src emacs-lisp
-
-  (use-package dashboard
-    :init
-    (setq dashboard-banner-logo-title "Welcome to Emacs!")
-    (setq dashboard-set-heading-icons t)
-    (setq dashboard-set-file-icons t)
-    (setq dashboard-startup-banner "~/.emacs.d/pics/emacs.png")
-    (setq dashboard-center-content t)
-    (setq dashboard-items nil))
-    ;; (setq dashboard-items '((recents . 5))))
-    :config
-  (dashboard-setup-startup-hook)
-  (dashboard-modify-heading-icons '((recents . "file-text")
-                                    (bookmarks . "book")))
-
-  (setq doom-fallback-buffer "*dashboard*")
-
-#+end_src
-
 ** Theme
 
 These days I bounce around between themes included with =DOOM Themes= since they're well-designed and integrate with a lot of Emacs packages.
@@ -284,7 +262,7 @@ These days I bounce around between themes included with =DOOM Themes= since they
 #+begin_src emacs-lisp
 
   (use-package doom-themes
-    :init (load-theme 'doom-solarized-dark t))
+    :init (load-theme 'doom-dracula t))
 
 #+end_src
 

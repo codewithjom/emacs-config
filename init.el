@@ -123,24 +123,8 @@
 
 (setq ad-redefinition-action 'accept)
 
-(use-package dashboard
-  :init
-  (setq dashboard-banner-logo-title "Welcome to Emacs!")
-  (setq dashboard-set-heading-icons t)
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-startup-banner "~/.emacs.d/pics/emacs.png")
-  (setq dashboard-center-content t)
-  (setq dashboard-items nil))
-  ;; (setq dashboard-items '((recents . 5))))
-  :config
-(dashboard-setup-startup-hook)
-(dashboard-modify-heading-icons '((recents . "file-text")
-                                  (bookmarks . "book")))
-
-(setq doom-fallback-buffer "*dashboard*")
-
 (use-package doom-themes
-  :init (load-theme 'doom-solarized-dark t))
+  :init (load-theme 'doom-dracula t))
 
 (defvar jd/default-font-size 110)
 (defvar jd/default-variable-font-size 110)
@@ -856,3 +840,16 @@ folder, otherwise delete a word"
   :commands daemons)
 
 (use-package sudo-edit)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+	 '(lua-mode yaml ws-butler which-key web-mode vterm-toggle visual-fill-column vertico use-package typescript-mode super-save sudo-edit smartparens skewer-mode rainbow-mode rainbow-delimiters prettier-js org-superstar org-present org-appear orderless openwith nvm no-littering minions meghanada marginalia magit lsp-ui lsp-java lorem-ipsum lispyville ivy-rich ivy-hydra impatient-mode helpful general evil-nerd-commenter evil-collection emojify emms doom-themes doom-modeline dired-single dired-ranger dired-rainbow dired-collapse diminish dashboard daemons counsel corfu consult company-box command-log-mode cider ccls bookmark-view apheleia all-the-icons-dired ac-html)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(vertico-current ((t (:background "#3a3f5a")))))
