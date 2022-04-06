@@ -124,7 +124,7 @@
 (setq ad-redefinition-action 'accept)
 
 (use-package doom-themes
-  :init (load-theme 'doom-dracula t))
+  :init (load-theme 'doom-solarized-dark t))
 
 (defvar jd/default-font-size 110)
 (defvar jd/default-variable-font-size 110)
@@ -223,13 +223,7 @@
   "gi"  '(magit-init :which-key "git init")
   "gc"  '(magit-clone :which-key "git clone")
 
-  "k"   '(:ignore t :which-key "kill")
-  "kk"  '(jd/kill-panel :which-key "kill polybar")
-  "kp"  '(jd/start-panel :which-key "start/restart killpolybar")
-  "ks"  '(server-force-delete :which-key "delete connection")
-  "kS"  '(server-start :which-key "start server connection")
-
-  "ot"  '(vterm :which-key "launch vterm")
+  "ot"  '(vterm-toggle :which-key "launch vterm")
   "ol"  '(display-line-numbers-mode :which-key "display line numbers")
   "op"  '(org-present :which-key "org-mode presentation")
   "oi"  '(org-toggle-inline-images :which-key "display images in org-mode")
@@ -474,6 +468,9 @@ folder, otherwise delete a word"
 (use-package bookmark-view)
 
 (setq-default fill-column 80)
+
+(use-package simple-httpd
+  :ensure t)
 
 (defun jd/org-mode-setup ()
   (org-indent-mode)
@@ -840,16 +837,3 @@ folder, otherwise delete a word"
   :commands daemons)
 
 (use-package sudo-edit)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-	 '(lua-mode yaml ws-butler which-key web-mode vterm-toggle visual-fill-column vertico use-package typescript-mode super-save sudo-edit smartparens skewer-mode rainbow-mode rainbow-delimiters prettier-js org-superstar org-present org-appear orderless openwith nvm no-littering minions meghanada marginalia magit lsp-ui lsp-java lorem-ipsum lispyville ivy-rich ivy-hydra impatient-mode helpful general evil-nerd-commenter evil-collection emojify emms doom-themes doom-modeline dired-single dired-ranger dired-rainbow dired-collapse diminish dashboard daemons counsel corfu consult company-box command-log-mode cider ccls bookmark-view apheleia all-the-icons-dired ac-html)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(vertico-current ((t (:background "#3a3f5a")))))

@@ -262,7 +262,7 @@ These days I bounce around between themes included with =DOOM Themes= since they
 #+begin_src emacs-lisp
 
   (use-package doom-themes
-    :init (load-theme 'doom-dracula t))
+    :init (load-theme 'doom-solarized-dark t))
 
 #+end_src
 
@@ -413,13 +413,7 @@ Doom Modeline
     "gi"  '(magit-init :which-key "git init")
     "gc"  '(magit-clone :which-key "git clone")
 
-    "k"   '(:ignore t :which-key "kill")
-    "kk"  '(jd/kill-panel :which-key "kill polybar")
-    "kp"  '(jd/start-panel :which-key "start/restart killpolybar")
-    "ks"  '(server-force-delete :which-key "delete connection")
-    "kS"  '(server-start :which-key "start server connection")
-
-    "ot"  '(vterm :which-key "launch vterm")
+    "ot"  '(vterm-toggle :which-key "launch vterm")
     "ol"  '(display-line-numbers-mode :which-key "display line numbers")
     "op"  '(org-present :which-key "org-mode presentation")
     "oi"  '(org-toggle-inline-images :which-key "display images in org-mode")
@@ -784,6 +778,9 @@ Set up Org Mode with a baseline configuration. The following sections will add m
 #+begin_src emacs-lisp
 
   (setq-default fill-column 80)
+
+  (use-package simple-httpd
+    :ensure t)
 
   (defun jd/org-mode-setup ()
     (org-indent-mode)
