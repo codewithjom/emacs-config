@@ -2,6 +2,16 @@
 #+author: Jom Dollesin
 #+property: header-args:emacs-lisp :tangle ./init.el
 
+[[https://raw.githubusercontent.com/codewithjom/emacs-config/master/.screenshot.jpg]]
+
+Use my configuration:
+
+#+begin_src sh
+
+  git clone https://github.com/codewithjom/emacs-config.git ~/.emacs.d
+
+#+end_src
+
 * About This Configuration
 
 This is an ongoing evolution of my original Emacs configuration files, inspired by a bunch of resources I've found online.
@@ -262,7 +272,7 @@ These days I bounce around between themes included with =DOOM Themes= since they
 #+begin_src emacs-lisp
 
   (use-package doom-themes
-    :init (load-theme 'doom-solarized-dark t))
+    :init (load-theme 'doom-one t))
 
 #+end_src
 
