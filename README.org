@@ -6,7 +6,7 @@
 
 Use my configuration:
 
-#+begin_src sh
+#+begin_src sh :tangle no
 
   git clone https://github.com/codewithjom/emacs-config.git ~/.emacs.d
 
@@ -272,7 +272,7 @@ These days I bounce around between themes included with =DOOM Themes= since they
 #+begin_src emacs-lisp
 
   (use-package doom-themes
-    :init (load-theme 'doom-one t))
+    :init (load-theme 'doom-gruvbox t))
 
 #+end_src
 
@@ -430,6 +430,7 @@ Doom Modeline
     "on"  '(jd/search-org-files :which-key "show notes")
 
     "t"   '(:ignore t :which-key "toggles")
+    "tT"  '(treemacs :which-key "toggle treemacs")
     "tt"  '(counsel-load-theme :which-key "choose theme"))
 
 #+end_src
@@ -1181,7 +1182,9 @@ Just in case I want to learn this languages.
     (setq-default web-mode-markup-indent-offset 2)
     (setq-default web-mode-attribute-indent-offset 2))
 
-  (use-package ac-html)
+  (use-package ac-html
+    :config
+    (ac-start t))
   (use-package lorem-ipsum)
 
   ;; 1. Start the server with `httpd-start'
@@ -1189,6 +1192,9 @@ Just in case I want to learn this languages.
   (use-package impatient-mode)
 
   (use-package skewer-mode)
+  (use-package prettier
+    :config
+    (prettier-mode t))
 
 #+end_src
 
@@ -1256,6 +1262,7 @@ Set up the =compile= package and ensure that compilation output automatically sc
   (use-package yasnippet
     :hook (prog-mode . yas-minor-mode)
     :config
+    (setq yas-snippet-dirs '("~/Docs/repo/snippets"))
     (yas-global-mode 1))
 
 #+end_src
@@ -1291,6 +1298,23 @@ Sets the background of HTML color strings in buffer to be the color mentioned.
            web-mode
            typescript-mode
            js2-mode))
+#+end_src
+
+*Highlight Indent Guides*
+
+Set indentation lines to have the look and feel like the other editors. There are four options to choose to change method.
+
+- fill
+- column
+- character
+- bitmap
+
+#+begin_src emacs-lisp
+
+  (use-package highlight-indent-guides)
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (setq highlight-indent-guides-method 'bitmap)
+
 #+end_src
 
 ** Terminal

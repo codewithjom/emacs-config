@@ -124,7 +124,7 @@
 (setq ad-redefinition-action 'accept)
 
 (use-package doom-themes
-  :init (load-theme 'doom-one t))
+  :init (load-theme 'doom-gruvbox t))
 
 (defvar jd/default-font-size 110)
 (defvar jd/default-variable-font-size 110)
@@ -230,6 +230,7 @@
   "on"  '(jd/search-org-files :which-key "show notes")
 
   "t"   '(:ignore t :which-key "toggles")
+  "tT"  '(treemacs :which-key "toggle treemacs")
   "tt"  '(counsel-load-theme :which-key "choose theme"))
 
 (use-package paren
@@ -749,7 +750,9 @@ folder, otherwise delete a word"
   (setq-default web-mode-markup-indent-offset 2)
   (setq-default web-mode-attribute-indent-offset 2))
 
-(use-package ac-html)
+(use-package ac-html
+  :config
+  (ac-start t))
 (use-package lorem-ipsum)
 
 ;; 1. Start the server with `httpd-start'
@@ -757,6 +760,9 @@ folder, otherwise delete a word"
 (use-package impatient-mode)
 
 (use-package skewer-mode)
+(use-package prettier
+  :config
+  (prettier-mode t))
 
 (use-package lsp-java
   :config (add-hook 'java-mode-hook 'lsp))
@@ -796,6 +802,7 @@ folder, otherwise delete a word"
 (use-package yasnippet
   :hook (prog-mode . yas-minor-mode)
   :config
+  (setq yas-snippet-dirs '("~/Docs/repo/snippets"))
   (yas-global-mode 1))
 
 (use-package smartparens
@@ -811,6 +818,10 @@ folder, otherwise delete a word"
          web-mode
          typescript-mode
          js2-mode))
+
+(use-package highlight-indent-guides)
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(setq highlight-indent-guides-method 'bitmap)
 
 (use-package vterm
   :commands vterm
