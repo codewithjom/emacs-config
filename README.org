@@ -957,6 +957,40 @@ These templates enable you to type things like =<el= and then hit =Tab= to expan
 
 #+end_src
 
+** Fancy Presentation
+
+*Reveal.js* is tool for creating good-looking HTML presentation, authored by [[http://hakim.se/][Hakim El Hattab]].
+
+*Org-Reveal* exports your =Org= documents to reveal.js presentations. With Org-reveal, you can create beautiful presentation with 3D effect from simple but powerful Org contents.
+
+Add the following to your presentation:
+
+#+begin_src org :tangle no
+
+  :REVEAL_PROPERTIES:
+  #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+  #+REVEAL_REVEAL_JS_VERSION: 4
+  :END:
+
+#+end_src
+
+*Tips and Tricks*:
+- =org-export-dispatch= =R-B= - Launch you presentation.
+- =o= - Show overview.
+- [[https://revealjs.com/themes/]] - Themes.
+  - Add =#+REVEAL_THEME:= to =:REVEAL_PROPERTIES= and add your theme.
+- =#+OPTIONS:= - You can also add option like =timestamp:nil=, =toc:1=, =num:nil=
+- =#+ATTR_REVEAL: :frag (appear)= - Add this if you have a list items.
+- =#+ATTR_HTML: :width 45% :align center= - Add this if you have an image.
+- =#+BEGIN_NOTES= add your notes here for your presentation =#+END_NOTES=.
+  - =s= - toggle the presenting window (to show your notes).
+
+#+begin_src emacs-lisp
+
+  (use-package ox-reveal)
+
+#+end_src
+
 ** Auto-show Markup Symbols
 
 This package makes it much easier to edit Org documents when =org-hide-emphasis-markers= is turned on. It temporarily shows the emphasis markers around certain markup elements when you place your cursor inside of them. No more fumbling around with === and =*= characters!

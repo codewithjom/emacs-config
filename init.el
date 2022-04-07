@@ -610,6 +610,8 @@ folder, otherwise delete a word"
   :hook ((org-present-mode . jd/org-present-hook)
          (org-present-mode-quit . jd/org-present-quit-hook)))
 
+(use-package ox-reveal)
+
 (use-package org-appear
   :hook (org-mode . org-appear-mode))
 
