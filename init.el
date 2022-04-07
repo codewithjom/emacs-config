@@ -112,6 +112,7 @@
 
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
+                neotree-mode-hook
                 term-mode-hook
                 vterm-mode-hook
                 eshell-mode-hook))
@@ -204,6 +205,7 @@
 (jd/leader-keys
   "."   '(find-file :which-key "find file")
   "RET" '(bookmark-view-open :which-key "show bookmarks")
+  "SPC" '(neotree-toggle :which-key "toggle neotree window")
 
   "b"   '(:ignore t :which-key "buffer")
   "bb"  '(switch-to-buffer :which-key "show buffer")
@@ -230,7 +232,6 @@
   "on"  '(jd/search-org-files :which-key "show notes")
 
   "t"   '(:ignore t :which-key "toggles")
-  "tT"  '(treemacs :which-key "toggle treemacs")
   "tt"  '(counsel-load-theme :which-key "choose theme"))
 
 (use-package paren
@@ -246,6 +247,10 @@
 (use-package ws-butler
   :hook ((text-mode . ws-butler-mode)
          (prog-mode . ws-butler-mode)))
+
+(use-package neotree)
+(setq neo-smart-open t
+      neo-window-fixed-size nil)
 
 (use-package hydra
   :defer 1)

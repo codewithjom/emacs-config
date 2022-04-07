@@ -234,6 +234,7 @@ Enable line numbers and customize their format:
 
   ;; Disable line numbers for some modes
   (dolist (mode '(org-mode-hook
+                  neotree-mode-hook
                   term-mode-hook
                   vterm-mode-hook
                   eshell-mode-hook))
@@ -404,6 +405,7 @@ Doom Modeline
   (jd/leader-keys
     "."   '(find-file :which-key "find file")
     "RET" '(bookmark-view-open :which-key "show bookmarks")
+    "SPC" '(neotree-toggle :which-key "toggle neotree window")
 
     "b"   '(:ignore t :which-key "buffer")
     "bb"  '(switch-to-buffer :which-key "show buffer")
@@ -430,7 +432,6 @@ Doom Modeline
     "on"  '(jd/search-org-files :which-key "show notes")
 
     "t"   '(:ignore t :which-key "toggles")
-    "tT"  '(treemacs :which-key "toggle treemacs")
     "tt"  '(counsel-load-theme :which-key "choose theme"))
 
 #+end_src
@@ -473,6 +474,16 @@ Default to an indentation size of 2 spaces since it's the norm for pretty much e
   (use-package ws-butler
     :hook ((text-mode . ws-butler-mode)
            (prog-mode . ws-butler-mode)))
+
+#+end_src
+
+** Neotree
+
+#+begin_src emacs-lisp
+
+  (use-package neotree)
+  (setq neo-smart-open t
+        neo-window-fixed-size nil)
 
 #+end_src
 
